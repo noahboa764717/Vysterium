@@ -43,7 +43,7 @@ import { community } from './community.js';
 
 window.app = new App();
 
-app.bare = new Ultraviolet.BareClient(new URL(index$config.bare, window.location));
+app.bare = new Ultraviolet.BareClient(new URL(__uv$config.bare, window.location));
 
 // You can add more search engines if you want
 app.searchProviders = {
@@ -218,9 +218,9 @@ document.querySelector('.access-link').addEventListener('click', () => {
     const frame = document.querySelector('.access-frame');
     const win = frame.contentWindow;
     
-    if (win.index$location) {
+    if (win.__uv$location) {
         navigator.clipboard.writeText(
-            new URL('./?link=' + encodeURIComponent(btoa(win.index$location.href)), location.href).href
+            new URL('./?link=' + encodeURIComponent(btoa(win.__uv$location.href)), location.href).href
         );
     };
 
@@ -243,7 +243,7 @@ document.querySelector('.access-panel').addEventListener('mouseenter', async eve
 
         if (favi && Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'href').get.call(favi)) {
             const res = await bare.fetch(
-                index$config.decodeUrl(Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'href').get.call(favi).replace(new URL(index$config.prefix, window.location.origin), ""))
+                __uv$config.decodeUrl(Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'href').get.call(favi).replace(new URL(__uv$config.prefix, window.location.origin), ""))
             );
 
             const blob = await res.blob();
@@ -252,7 +252,7 @@ document.querySelector('.access-panel').addEventListener('mouseenter', async eve
             document.querySelector('.access-panel .controls .icon').src = url;
             URL.revokeObjectURL(url);
         } else {
-            const res = await bare.fetch(new URL('/favicon.ico', win.index$location.origin));
+            const res = await bare.fetch(new URL('/favicon.ico', win.__uv$location.origin));
 
             const blob = await res.blob();
             const url = URL.createObjectURL(blob);

@@ -189,8 +189,8 @@ function cookieManager(importData, exportData) {
       urlChangeButton.textContent = "Change URL";
       urlChangeButton.addEventListener("click", () => {
         const url = input.value.trim();
-        const prefix = index$config.prefix;
-        const encodedUrl = index$config.encodeUrl(url);
+        const prefix = __uv$config.prefix;
+        const encodedUrl = __uv$config.encodeUrl(url);
         const newUrl = /^(http|https):\/\//.test(url) ? url : "https://" + url;
         window.location.href = location.origin + prefix + encodedUrl;
       });

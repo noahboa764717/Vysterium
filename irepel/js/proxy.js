@@ -2,12 +2,12 @@ function proxy(url) {
 	worker().then(e=>{
 		if (!url.startsWith('http')) url = 'https://' + url;
 	
-		location.assign(window.index$config.prefix + window.index$config.encodeUrl(url));
+		location.assign(window.__uv$config.prefix + window.__uv$config.encodeUrl(url));
 	});
 }
 
 async function worker() {
-	var a = await navigator.serviceWorker.register('/sw.js', {scope:  index$config.prefix });
+	var a = await navigator.serviceWorker.register('/sw.js', {scope:  __uv$config.prefix });
 	return a;
 }
 
@@ -20,7 +20,7 @@ if (window.location.pathname === '/irepel/proxy.html') {
 			var val = document.querySelector('.uvinput').value;
 			if (!val.startsWith('http')) val = 'https://' + val;
 		
-			location.assign(window.index$config.prefix + window.index$config.encodeUrl(val));
+			location.assign(window.__uv$config.prefix + window.__uv$config.encodeUrl(val));
 		});
 	});
 	const queryParams = new URLSearchParams(window.location.search);

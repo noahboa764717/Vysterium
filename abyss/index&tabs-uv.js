@@ -19,7 +19,7 @@ function go(value) {
   let iframe = document.querySelector(".iframe.active");
   window.navigator.serviceWorker
     .register("/sw.js", {
-      scope: index$config.prefix,
+      scope: __uv$config.prefix,
     })
     .then(() => {
       let url = value.trim();
@@ -27,14 +27,14 @@ function go(value) {
       else if (!(url.startsWith("https://") || url.startsWith("http://")))
         url = "https://" + url;
       iframe.style.display = "block"
-      iframe.src = index$config.prefix + index$config.encodeUrl(url);
-      //var iframeurl = index$config.decodeUrl(iframe.src)
-      var iframeurl = iframe.src.substring(iframe.src.indexOf(index$config.prefix) + 9);
-      //document.querySelector("#urlbartop input").value = iframeurl.substring(iframeurl.indexOf(index$config.prefix) + 0);
-      document.querySelector("#urlbartop input").value = index$config.decodeUrl(iframeurl)
+      iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+      //var iframeurl = __uv$config.decodeUrl(iframe.src)
+      var iframeurl = iframe.src.substring(iframe.src.indexOf(__uv$config.prefix) + 9);
+      //document.querySelector("#urlbartop input").value = iframeurl.substring(iframeurl.indexOf(__uv$config.prefix) + 0);
+      document.querySelector("#urlbartop input").value = __uv$config.decodeUrl(iframeurl)
 
-      //getIframeFavicon(iframeurl.substring(iframeurl.indexOf(index$config.prefix) + 0))
-      getIframeFavicon(index$config.decodeUrl(iframeurl))
+      //getIframeFavicon(iframeurl.substring(iframeurl.indexOf(__uv$config.prefix) + 0))
+      getIframeFavicon(__uv$config.decodeUrl(iframeurl))
     });
 }
 
@@ -113,7 +113,7 @@ function openTab(tabNumber) {
   iframe.classList.add("active");
   iframe.style.zIndex = zIndex
   zIndex = zIndex + 2
-  var url = index$config.decodeUrl(iframe.src)
+  var url = __uv$config.decodeUrl(iframe.src)
   document.querySelector("#urlbartop input").value = url.substring(url.indexOf("https://") + 0);
   var tabs = document.querySelectorAll(".tab");
   tabs.forEach(elmnt => elmnt.className = "tab");

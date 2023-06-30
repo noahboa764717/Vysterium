@@ -11,7 +11,7 @@ function encodeUrl(str){
 }
 
 window.navigator.serviceWorker.register('/sw.js', {
-    scope: /*index$config.prefix*/index$config.prefix
+    scope: /*__uv$config.prefix*/__uv$config.prefix
 }).then(() => {
     console.log("Service worker (for Quick Link) registered.");
 });

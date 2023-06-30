@@ -3,12 +3,12 @@ function proxy() {
 		var i = document.getElementById("ifr");
 		let url = atob(decodeURIComponent(window.location.hash.slice(1)));
 		console.log(url)
-		navigator.serviceWorker.register("/sw.js", {scope: index$config.prefix}).then(() => {
-			i.src = index$config.prefix + index$config.encodeUrl(url);
+		navigator.serviceWorker.register("/sw.js", {scope: __uv$config.prefix}).then(() => {
+			i.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 			var m = document.getElementById("m");
 			i.onload = function() {
 				m.innerText = i.contentDocument.title;
-				window.location.hash = btoa(index$config.decodeUrl(i.contentWindow.location.href.split("/")[4]))
+				window.location.hash = btoa(__uv$config.decodeUrl(i.contentWindow.location.href.split("/")[4]))
 			}
 		});
 	}

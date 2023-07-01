@@ -1,0 +1,62 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #696969;
+    background-image: linear-gradient(to bottom, #ff4136, #696969);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    z-index: -1;
+  }
+
+  #container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+
+  h1 {
+    font-size: 10rem;
+    margin: 0;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    display: inline-block;
+    background-color: #fff;
+    color: #ff4136;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 10rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  a:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  }

@@ -50,7 +50,6 @@ self.addEventListener('fetch', event => {
               backButton.textContent = "Back to modules list";
               backButton.addEventListener("click", home);
               menu.appendChild(backButton);
-            
               let textarea = document.createElement("textarea");
               textarea.style.width = "100%";
               textarea.style.height = "60%";
@@ -80,10 +79,12 @@ self.addEventListener('fetch', event => {
               let urlChangeButton = document.createElement("button");
               urlChangeButton.textContent = "Change URL";
               urlChangeButton.addEventListener("click", () => {
-                const url = input.value.trim();
-                const prefix = selfindex$config.prefix;
-                const newUrl = /^(http|https):\/\//.test(url) ? url : "https://" + url;
-                window.location.href = location.origin + selfindex$config.prefix + selfindex$config.encodeUrl(newUrl);
+                let url = input.value.trim();
+                if (!url.startsWith("https://") && !url.startsWith("http://")) {
+                  url = "https://" + url;
+                }                
+                newUrl = selfindex$config.prefix + selfindex$config.encodeUrl(url);
+                window.location.href = newUrl
               });
               menu.appendChild(urlChangeButton);
             }

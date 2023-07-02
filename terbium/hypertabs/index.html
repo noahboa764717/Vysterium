@@ -16,7 +16,7 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
       navigator.serviceWorker.register('/uv/uv.sw.js', {
-          scope: __uv$config.prefix,
+          scope: selfindex$config.prefix,
       });
     };
 

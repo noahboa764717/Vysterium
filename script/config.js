@@ -1,4 +1,4 @@
-self.__uv$config = {
+self.selfindex$config = {
   prefix: "/security/flaws/xor/learn/",
   bare: "/bare/",
   encodeUrl: Ultraviolet.codec.xor.encode,

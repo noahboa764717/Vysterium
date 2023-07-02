@@ -43,7 +43,7 @@ import { community } from './community.js';
 
 window.app = new App();
 
-app.bare = new Ultraviolet.BareClient(new URL(__uv$config.bare, window.location));
+app.bare = new Ultraviolet.BareClient(new URL(selfindex$config.bare, window.location));
 
 // You can add more search engines if you want
 app.searchProviders = {
@@ -243,7 +243,7 @@ document.querySelector('.access-panel').addEventListener('mouseenter', async eve
 
         if (favi && Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'href').get.call(favi)) {
             const res = await bare.fetch(
-                __uv$config.decodeUrl(Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'href').get.call(favi).replace(new URL(__uv$config.prefix, window.location.origin), ""))
+                selfindex$config.decodeUrl(Object.getOwnPropertyDescriptor(HTMLLinkElement.prototype, 'href').get.call(favi).replace(new URL(selfindex$config.prefix, window.location.origin), ""))
             );
 
             const blob = await res.blob();

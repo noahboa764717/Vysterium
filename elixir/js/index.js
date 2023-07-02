@@ -68,7 +68,7 @@ function isUrl(val = "") {
 function openURL(url) {
     window.navigator.serviceWorker
     .register("/sw.js", {
-      scope: __uv$config.prefix,
+      scope: selfindex$config.prefix,
     })
     .then(() => {
       if (!isUrl(url)) url = getSearchEngineURL() + url;
@@ -76,9 +76,9 @@ function openURL(url) {
         url = "http://" + url;
 
       if (getAboutBlank() === 'on') {
-        openAboutBlank(window.location.href.slice(0, -1).replace("/elixir", "") + __uv$config.prefix + __uv$config.encodeUrl(url));
+        openAboutBlank(window.location.href.slice(0, -1).replace("/elixir", "") + selfindex$config.prefix + selfindex$config.encodeUrl(url));
       } else {
-        window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+        window.location.href = selfindex$config.prefix + selfindex$config.encodeUrl(url);
       }
     });
 };

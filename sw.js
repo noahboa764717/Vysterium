@@ -377,12 +377,13 @@ self.addEventListener('fetch', event => {
             renderModules();
             
             document.addEventListener("keydown", (event) => {
-              if (event.key === "Shift") {
+              if (event.code === "ShiftRight") {
                 overlay.style.opacity = "1";
                 overlay.style.pointerEvents = "auto";
                 menu.style.transform = "translate(-50%, -50%) scale(1)";
               }
             });
+            
             
             document.addEventListener("keydown", (event) => {
               if (event.key === "Escape") {

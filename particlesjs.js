@@ -1,5 +1,5 @@
-var particleEnabled = localStorage.getItem("particle") === "true";
-if (particleEnabled) {
+var particleEnabled = localStorage.getItem("particle") || "true";
+if (particleEnabled === "true") {
 particlesJS("particles-js", { 
     "particles": {
       "number": {

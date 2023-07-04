@@ -8,7 +8,21 @@ function base64EncodeUnicode(str) {
         return String.fromCharCode('0x' + p1);
     }));
 }
+function toggleParticles() {
+    var particleToggle = document.getElementById("particleToggle");
+    particleToggle.checked = !particleToggle.checked;
+    localStorage.setItem("particle", particleToggle.checked);
+    updateToggleSwitch();
+}
 
+function updateToggleSwitch() {
+    var particleToggle = document.getElementById("particleToggle");
+    var toggleSwitch = document.querySelector(".toggle-switch");
+    toggleSwitch.classList.toggle("on", particleToggle.checked);
+}
+
+// Update toggle switch on page load
+window.addEventListener("load", updateToggleSwitch);
 function exportData() {
     let cookies = document.cookie.split('; ')
         .reduce((result, c) => {

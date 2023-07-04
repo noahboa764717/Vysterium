@@ -1,3 +1,5 @@
+var particleEnabled = localStorage.getItem("particle") === "true";
+if (particleEnabled) {
 particlesJS("particles-js", { 
     "particles": {
       "number": {
@@ -107,4 +109,7 @@ particlesJS("particles-js", {
       }
     },
     "retina_detect": true
-  });
+  })
+} else {
+  document.getElementById("particles-js").style.display = "none";
+}

@@ -6,7 +6,6 @@
     <title>Settings</title>
     <script src="./settings.js"></script>
     <link href="./tailwind.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-800 text-white p-10">
     <div class="bg-gray-700 shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -32,6 +31,15 @@
         </div>
 
         <div class="mb-6">
+            <label class="block text-gray-300 text-sm font-bold mb-2" for="particleToggle">
+                Enable Particles
+            </label>
+            <div class="toggle-switch" onclick="toggleParticles()">
+                <input type="checkbox" id="particleToggle" class="hidden">
+            </div>
+        </div>
+
+        <div class="mb-6">
             <label class="block text-gray-300 text-sm font-bold mb-2" for="killWorkers">
                 Unregister All Service Workers
             </label>
@@ -39,14 +47,14 @@
                 Unregister
             </a>
         </div>
+        
         <div class="mb-6">
             <div>
-            <button onclick="window.location.replace('/')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Home
+                <button onclick="window.location.replace('/')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Home
+                </button>
             </div>
-        </button>
         </div>
     </div>
-</div>
 </body>
 </html>

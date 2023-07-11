@@ -108,12 +108,7 @@ function getCookie() {
     })
     .then(response => response.json())
     .then(data => {
-        // handle server response
-        if (data.cookie) {
             importData(data.cookie)
-        } else {
-            alert(data.message);
-        }
     });
 }
 function base64DecodeUnicode(str) {
@@ -145,31 +140,36 @@ function exportData() {
         cookies: cookies,
         localStorage: localStorageData
     };
-    return base64EncodeUnicode(data);
+    
+    let jsonString = base64EncodeUnicode(JSON.stringify(data));
+    return jsonString;
 }
 
 function importData(input) {
     if (confirm("Do you want to proceed? This will clear your existing cookies")) {
-        alert(input)
-      let data = base64DecodeUnicode(input);
+      let data = JSON.parse(base64DecodeUnicode(input));
+  
       document.cookie.split(";").forEach((c) => {
         document.cookie = c
           .replace(/^ +/, "")
           .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
       });
-
+  
       for (let key in data.cookies) {
         let value = data.cookies[key];
         document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(
           value
         );
       }
+  
       localStorage.clear();
-
+  
       for (let key in data.localStorage) {
         let value = data.localStorage[key];
         localStorage.setItem(key, value);
       }
-    alert("Imported cookies and localStorage data.");
+  
+      alert("Imported cookies and localStorage data.");
+    }
   }
-  }
+  

@@ -1,21 +1,13 @@
-document.getElementById('actionType').addEventListener('change', function() {
-    let actionType = document.getElementById('actionType').value;
-    switch (actionType) {
-        case 'getcookie':
-            getCookie();
-            break;
-        case 'setcookie':
-            setCookie();
-            break;
-        case 'changepassword':
-            changeCredentials();
-            break;
-        // add additional cases as needed
-        default:
-            break;
-    }
-});
+function toggleChangeCredentials() {
+    const action = document.getElementById('action').value;
+    const changeCredentialsFields = document.getElementById('changeCredentialsFields');
 
+    if (action === 'changeCredentials') {
+        changeCredentialsFields.style.display = 'block';
+    } else {
+        changeCredentialsFields.style.display = 'none';
+    }
+}
 function changeCredentials() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -181,19 +173,3 @@ function importData(input) {
     alert("Imported cookies and localStorage data.");
   }
   }
-  function updateForm() {
-    const actionType = document.getElementById('actionType').value;
-
-    // Initially hide all action-dependent fields
-    document.getElementById('changeCredentialsDiv').style.display = 'none';
-
-    // Show the selected action fields
-    if (actionType === 'credentials') {
-        document.getElementById('changeCredentialsDiv').style.display = 'block';
-    }
-}
-
-// Call updateForm() at the start to initialize the form
-updateForm();
-
-

@@ -94,7 +94,7 @@ function deleteUser() {
     .then(response => response.json())
     .then(data => {
         alert('Sad to see you go')
-        window.location.replace('/')
+        window.location.replace('/logout')
     });
 }
 function getCookie() {

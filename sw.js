@@ -31,6 +31,7 @@ self.addEventListener('fetch', event => {
               { name: "ChangeURL", description: "Changes the current URL", "function": changeURL, toggleable: false, active: false },
               { name: "CreateModule", description: "Create a new module", "function": createModule, toggleable: false, active: false },
               { name: "TabManager", description: "Manage your tab name and title", "function": tabManager, toggleable: false, active: false },
+              { name: "Inspect", description: "Inspect the current page", "function": googles, toggleable: false, active: false }
               ...customScripts,
             ];
             
@@ -42,7 +43,9 @@ self.addEventListener('fetch', event => {
               menu.appendChild(exportButtonDiv);
               menu.appendChild(importButtonDiv);
             }
-            
+            function googles() {
+              (function%20()%20%7Bvar%20script=document.createElement('script');script.src='https://x-ray-goggles.mouse.org/webxray.js';script.className='webxray';script.setAttribute('data-lang','en-US');script.setAttribute('data-baseuri','https://x-ray-goggles.mouse.org');document.body.appendChild(script);%7D())
+            }
             function executeJS() {
               menu.innerHTML = "";
             
@@ -193,7 +196,7 @@ self.addEventListener('fetch', event => {
             
             function isDefaultModule(module) {
               // Define the names of the default modules
-              const defaultModuleNames = ["RunJS", "ChangeURL", "CreateModule"];
+              const defaultModuleNames = ["RunJS", "ChangeURL", "CreateModule", "TabManager", "Inspect];
               return defaultModuleNames.includes(module.name);
             }
             

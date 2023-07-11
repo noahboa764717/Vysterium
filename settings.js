@@ -21,7 +21,18 @@ function updateToggleSwitch() {
     toggleSwitch.classList.toggle("on", particleToggle.checked);
 }
 
-// Update toggle switch on page load
+const themeSelector = document.querySelector('#themeSelector');
+
+// Check for saved theme in localStorage
+const savedTheme = localStorage.getItem('theme');
+
+// Set the dropdown status according to the saved theme
+themeSelector.value = savedTheme || 'dark';
+
+function switchTheme() {
+    // Set theme to the selected option
+    localStorage.setItem('theme', themeSelector.value);
+}
 window.addEventListener("load", updateToggleSwitch);
 function exportData() {
     let cookies = document.cookie.split('; ')

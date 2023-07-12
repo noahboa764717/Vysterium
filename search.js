@@ -5,6 +5,7 @@
  * @param {string} template Template for a search query.
  * @returns {string} Fully qualified URL
  */
+let engine =  localStorage.setItem('searchEngine') || google;
 function search(input, template) {
   try {
     return new URL(input).toString();

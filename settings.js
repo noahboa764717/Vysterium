@@ -8,18 +8,31 @@ function base64EncodeUnicode(str) {
         return String.fromCharCode('0x' + p1);
     }));
 }
+window.onload = function() {
+    var particleToggle = document.getElementById("particleToggle");
+    // Default to 'false' if the item doesn't exist in localStorage
+    var particleSetting = JSON.parse(localStorage.getItem("particle") || "true");
+    particleToggle.checked = particleSetting;
+    updateToggleSwitch();
+};
 function toggleParticles() {
     var particleToggle = document.getElementById("particleToggle");
     particleToggle.checked = !particleToggle.checked;
     localStorage.setItem("particle", particleToggle.checked);
     updateToggleSwitch();
 }
-
 function updateToggleSwitch() {
     var particleToggle = document.getElementById("particleToggle");
     var toggleSwitch = document.querySelector(".toggle-switch");
     toggleSwitch.classList.toggle("on", particleToggle.checked);
 }
+const engines = {
+    google: 'https://google.com/search?q=%s',
+    ddg: 'https://duckduckgo.com/?q=%s',
+    bing: 'https://bing.com/search?q=%s',
+    brave: 'https://search.brave.com/search?q=%s',
+    startpage: 'https://www.startpage.com/sp/search?query=%s'
+};
 
 const themeSelector = document.querySelector('#themeSelector');
 
@@ -148,11 +161,29 @@ function importDatafile() {
 
     input.click();
 }
-
-function killWorkers() {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-for(let registration of registrations) {
-registration.unregister();
+function setTab(data) {
+    localStorage.setItem('abcloak', data)
 }
-});
+function setEngine(engine) {
+    if (engines[engine]) {
+        localStorage.setItem('searchEngine', engines[engine]);
+    }
+}
+
+window.onload = function() {
+    // Update the select element to match the stored search engine
+    const currentEngineUrl = localStorage.getItem('searchEngine');
+    if (currentEngineUrl) {
+        const engineName = Object.keys(engines).find(key => engines[key] === currentEngineUrl);
+        if (engineName) {
+            document.getElementById('engineSelect').value = engineName;
+        }
+    }
+}
+function unregisterAllServiceWorkers() {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+            registration.unregister();
+        }
+    });
 }

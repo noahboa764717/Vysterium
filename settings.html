@@ -38,7 +38,28 @@
                 <input type="checkbox" id="particleToggle" class="hidden">
             </div>
         </div>
-        
+        <div class="mb-6">
+            <label class="block text-gray-300 text-sm font-bold mb-2" for="engineSelect">
+                Select Search Engine
+            </label>
+            <select id="engineSelect" class="bg-gray-800 text-black font-bold py-2 px-4 rounded" onchange="setEngine(this.value)">
+                <option value="google">Google</option>
+                <option value="ddg">DuckDuckGo</option>
+                <option value="bing">Bing</option>
+                <option value="brave">Brave</option>
+                <option value="startpage">Startpage</option>
+            </select>
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-300 text-sm font-bold mb-2" for="ab">
+                AB cloak
+            </label>
+            <select id="engineSelect" class="bg-gray-800 text-black font-bold py-2 px-4 rounded" onchange="setTab(this.value)">
+                <option value=null>Select One</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+        </div>
         <div class="mb-6">
             <div>
                 <button onclick="window.location.replace('/')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

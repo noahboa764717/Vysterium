@@ -35,9 +35,11 @@ const error = document.getElementById("uv-error");
 /**
  * @type {HTMLPreElement}
  */
+const ab = localStorage.getItem("abcloak") || false
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const url = search(address.value, searchEngine.value);
+  if (ab == true) {
     const popup = open("about:blank", "_blank")
     const doc = popup.document
           const iframe = doc.createElement("iframe")
@@ -54,4 +56,13 @@ form.addEventListener("submit", async (event) => {
           style.width = style.height = "100%"
   
           doc.body.appendChild(iframe)
+  } else {
+    location.href = location.origin + selfindex$config.prefix + selfindex$config.encodeUrl(url);
+  }
 });
+window.onload = function() {
+  // get the stored search engine from localStorage, default to 'google' if none
+  const searchEngine = localStorage.getItem('searchEngine') || 'google';
+  // set the value of the hidden input
+  document.getElementById('uv-search-engine').value = searchEngine;
+};

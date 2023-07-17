@@ -14,11 +14,18 @@ async function registerSW() {
 
   if (!navigator.serviceWorker)
     throw new Error("Your browser doesn't support service workers.");
+
+  // Unregister all service workers
+  const registrations = await navigator.serviceWorker.getRegistrations();
+  for (let registration of registrations) {
+    await registration.unregister();
+  }
+
+  // Register the new service worker
   await navigator.serviceWorker.register("/sw.js", {
     scope: selfindex$config.prefix,
   });
 }
-  registerSW();
 const form = document.getElementById("uv-form");
 /**
  * @type {HTMLInputElement}
@@ -37,6 +44,9 @@ const error = document.getElementById("uv-error");
  */
 const ab = localStorage.getItem("abcloak") || false
 form.addEventListener("submit", async (event) => {
+  try {
+    registerSW();
+  } catch (e) {}
   event.preventDefault();
   const url = search(address.value, searchEngine.value);
   if (ab == true) {
@@ -62,7 +72,7 @@ form.addEventListener("submit", async (event) => {
 });
 window.onload = function() {
   // get the stored search engine from localStorage, default to 'google' if none
-  const searchEngine = localStorage.getItem('searchEngine') || 'google';
+  const searchEngine = localStorage.getItem('searchEngine') || 'https://google.com/search?q=%s';
   // set the value of the hidden input
   document.getElementById('uv-search-engine').value = searchEngine;
 };

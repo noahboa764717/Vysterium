@@ -2,7 +2,6 @@ importScripts('/script/bundle.js');
 importScripts("/script/sw.js");
 importScripts("/script/config.js");
 importScripts("/script/scripts.js");
-importScripts("/script/injection.js");
 let sw = new UVServiceWorker();
 let bareReady = fetchAndSetBare();
 sw.on("request", (event) => {
@@ -23,8 +22,7 @@ self.addEventListener('fetch', event => {
           return response.clone().text().then(body => {
             // Modify the HTML body
             let newBody = body.replace('</body>', `
-            <script>` + `eval(atob("${gui}"))` + `
-            </script></body>`);
+            <style>${styles}</style><script>${gui}</script></body>`);
             
             // Create a new response
             return new Response(newBody, {

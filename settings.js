@@ -27,6 +27,7 @@ function updateToggleSwitch() {
     toggleSwitch.classList.toggle("on", particleToggle.checked);
 }
 const engines = {
+    default: 'https://google.com/search?q=%s',
     google: 'https://google.com/search?q=%s',
     ddg: 'https://duckduckgo.com/?q=%s',
     bing: 'https://bing.com/search?q=%s',

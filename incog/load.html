@@ -76,6 +76,10 @@
             startpage: 'https://www.startpage.com/sp/search?query='
         };
         if ('serviceWorker' in navigator) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+  for (let registration of registrations) {
+    await registration.unregister();
+  }
             navigator.serviceWorker.getRegistration("/sw.js").then(async worker => {
                 if(!worker) await navigator.serviceWorker.register('/sw.js', { scope: selfindex$config.prefix });
                 let url = atob(decodeURIComponent(window.location.hash.slice(1)));

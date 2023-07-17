@@ -108,4 +108,10 @@ particlesJS("particles-js", {
     },
     "retina_detect": true
   });
-  //pog
+  if (document.referrer && !sessionStorage.getItem('reloaded')) {
+    sessionStorage.setItem('reloaded', 'true');
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+  }
+  

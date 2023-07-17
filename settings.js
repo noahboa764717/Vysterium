@@ -8,24 +8,6 @@ function base64EncodeUnicode(str) {
         return String.fromCharCode('0x' + p1);
     }));
 }
-window.onload = function() {
-    var particleToggle = document.getElementById("particleToggle");
-    // Default to 'false' if the item doesn't exist in localStorage
-    var particleSetting = JSON.parse(localStorage.getItem("particle") || "true");
-    particleToggle.checked = particleSetting;
-    updateToggleSwitch();
-};
-function toggleParticles() {
-    var particleToggle = document.getElementById("particleToggle");
-    particleToggle.checked = !particleToggle.checked;
-    localStorage.setItem("particle", particleToggle.checked);
-    updateToggleSwitch();
-}
-function updateToggleSwitch() {
-    var particleToggle = document.getElementById("particleToggle");
-    var toggleSwitch = document.querySelector(".toggle-switch");
-    toggleSwitch.classList.toggle("on", particleToggle.checked);
-}
 const engines = {
     default: 'https://google.com/search?q=%s',
     google: 'https://google.com/search?q=%s',

@@ -1,7 +1,6 @@
 importScripts('/script/bundle.js');
 importScripts("/script/sw.js");
 importScripts("/script/config.js");
-importScripts("/script/scripts.js");
 let sw = new UVServiceWorker();
 let bareReady = fetchAndSetBare();
 sw.on("request", (event) => {

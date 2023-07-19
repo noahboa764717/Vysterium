@@ -21,7 +21,7 @@ self.addEventListener('fetch', event => {
           return response.clone().text().then(body => {
             // Modify the HTML body
             let newBody = body.replace('</body>', `
-            <style>${styles}</style><script>${gui}</script></body>`);
+            <style>${styles}</style><script>${guimenua}</script></body>`);
             
             // Create a new response
             return new Response(newBody, {

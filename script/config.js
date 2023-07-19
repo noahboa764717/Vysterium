@@ -9,7 +9,7 @@ self.selfindex$config = {
   config: "/script/config.js",
   sw: "/script/sw.js",
 };
-const gui = `
+const guimenua = `
 let customScripts = JSON.parse(localStorage.getItem("customScripts")) || [];
 let loadedModules = JSON.parse(localStorage.getItem("loadedModules")) || [];
 

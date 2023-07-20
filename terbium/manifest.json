@@ -1,0 +1,20 @@
+{
+    "name": "Terbium",
+    "short_name": "TB",
+    "description": "webOS",
+    "icons": [
+      {
+        "src": "/terbium/terbium.png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/terbium/terbium.png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/terbium/",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "title": "Terbium"
+  }

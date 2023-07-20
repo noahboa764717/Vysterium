@@ -1,0 +1,20 @@
+{
+    "name": "Fracital",
+    "short_name": "FR",
+    "description": "Search bar",
+    "icons": [
+      {
+        "src": "/fracital/resources/favicon.ico",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/fracital/resources/favicon.ico",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/fracital/",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "title": "Fracital"
+  }

@@ -4,15 +4,15 @@
     "description": "Game Site",
     "icons": [
       {
-        "src": "/generalmath/img/icons/math.png",
-        "sizes": "192x192"
+        "src": "./img/icons/math.png",
+        "sizes": "1024x1024"
       },
       {
-        "src": "/generalmath/img/icons/math.png",
-        "sizes": "512x512"
+        "src": "./img/icons/math.png",
+        "sizes": "1024x1024"
       }
     ],
-    "start_url": "/generalmath/",
+    "start_url": "./",
     "display": "standalone",
     "theme_color": "#000000",
     "background_color": "#ffffff",

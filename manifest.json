@@ -1,20 +1,18 @@
 {
-    "name": "Vysterium",
-    "short_name": "Vyst",
-    "description": "Cool.",
-    "icons": [
-      {
-        "src": "/favicon.ico",
-        "sizes": "192x192"
-      },
-      {
-        "src": "/favicon.ico",
-        "sizes": "512x512"
-      }
-    ],
-    "start_url": "/index.html",
-    "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff",
-    "title": "Vysterium"
-  }
+  "name": "Vysterium",
+  "short_name": "VS",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "1024x1024"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512"
+    }
+  ]
+}

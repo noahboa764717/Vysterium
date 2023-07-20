@@ -29,6 +29,9 @@ function switchTheme() {
     // Set theme to the selected option
     localStorage.setItem('theme', themeSelector.value);
 }
+function settab(data) {
+    localStorage.setItem('normaltab', data);
+}
 window.addEventListener("load", updateToggleSwitch);
 function exportData() {
     let cookies = document.cookie.split('; ')

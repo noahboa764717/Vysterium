@@ -2,8 +2,25 @@
 /**
  * @type {HTMLFormElement}
  */
-
-
+if (localStorage.getItem('normaltab') == "true") {
+  if (window==window.top) {
+          const popup = open("about:blank", "_blank")
+          const doc = popup.document
+          const iframe = doc.createElement("iframe")
+          const style = iframe.style
+          const link = doc.createElement("link")
+  
+          doc.title = "My Drive - Google Drive"
+          link.rel = "icon";
+          link.href = "https://ssl.gstatic.com/images/branding/product/2x/hh_drive_36dp.png";
+          iframe.src = location.href
+          style.position = "fixed"
+          style.top = style.bottom = style.left = style.right = 0
+          style.border = style.outline = "none"
+          style.width = style.height = "100%"
+          doc.body.appendChild(iframe)
+  }
+}
 const swAllowedHostnames = ["localhost", "127.0.0.1"];
 async function registerSW() {
   if (
@@ -26,6 +43,7 @@ async function registerSW() {
     scope: selfindex$config.prefix,
   });
 }
+registerSW();
 const form = document.getElementById("uv-form");
 /**
  * @type {HTMLInputElement}
@@ -44,14 +62,12 @@ const error = document.getElementById("uv-error");
  */
 const ab = localStorage.getItem("abcloak") || false
 form.addEventListener("submit", async (event) => {
-  try {
-    registerSW();
-  } catch (e) {}
   event.preventDefault();
   const url = search(address.value, searchEngine.value);
-  if (ab == true) {
-    const popup = open("about:blank", "_blank")
-    const doc = popup.document
+  if (ab == "true" && window==window.top) {
+          
+          const popup = open("about:blank", "_blank")
+          const doc = popup.document
           const iframe = doc.createElement("iframe")
           const style = iframe.style
           const link = doc.createElement("link")

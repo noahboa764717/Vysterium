@@ -11,8 +11,8 @@ async function worker() {
 	return a;
 }
 
-if (window.location.pathname === '/irepel/proxy.html') {
-	console.log('proxy.html');
+if (window.location.pathname === '/irepel/site.html') {
+	console.log('site.html');
 	document.querySelector('.uvform').addEventListener('submit', (e) => {
 		e.preventDefault();
 

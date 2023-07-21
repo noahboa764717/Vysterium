@@ -19,6 +19,7 @@ if (localStorage.getItem('normaltab') == "true") {
           style.border = style.outline = "none"
           style.width = style.height = "100%"
           doc.body.appendChild(iframe)
+          window.location.replace('https://google.com')
   }
 }
 const swAllowedHostnames = ["localhost", "127.0.0.1"];

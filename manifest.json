@@ -1,7 +1,7 @@
 {
   "name": "Vysterium",
   "short_name": "VS",
-  "start_url": "index.html",
+  "start_url": "login",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",

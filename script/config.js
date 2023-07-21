@@ -484,12 +484,6 @@ const styles = `
       })
       .then(() => console.log('Attempted try ' + p++));
     }
-    
-    fetch(`${location.origin}${globals.injectScriptUrl}`, {cache: "no-store"})
-      .then(response => {
-        if (response.ok) {
-          setInterval(generate, 500);
-        }
-      });
+  
     
     

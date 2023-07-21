@@ -32,6 +32,9 @@ function switchTheme() {
 function settab(data) {
     localStorage.setItem('normaltab', data);
 }
+function setc(data) {
+    localStorage.setItem('window', data);
+}
 window.addEventListener("load", updateToggleSwitch);
 function exportData() {
     let cookies = document.cookie.split('; ')

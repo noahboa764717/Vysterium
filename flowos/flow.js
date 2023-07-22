@@ -149,7 +149,7 @@ export default class FlowInstance {
 		open: (APP_ID) => {
 			let url;
 			window.logger.debug(JSON.stringify(apps()[APP_ID]));
-			url = apps()[APP_ID].proxy == false ? apps()[APP_ID].url : `${currentProxy.prefix}${currentProxy.encodeUrl(apps()[APP_ID].url)}`;
+			url = apps()[APP_ID].proxy == false ? apps()[APP_ID].url : `${selfindex$config.prefix}${selfindex$config.encodeUrl(apps()[APP_ID].url)}`;
 			window.logger.debug(url);
 			new WinBox({
 				title: apps()[APP_ID].title,

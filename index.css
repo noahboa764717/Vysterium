@@ -31,8 +31,8 @@
     --v1: #000000 119.5deg, #0000 120.5deg;
     --v2: #000000  119.5deg, #0000 120.5deg;
     background:linear-gradient(90deg,black,#121212,black) left/400% 100%;
+    background-repeat: repeat;
     background-size: cover;
-    background-position: 50% 50%;
   }
   
   

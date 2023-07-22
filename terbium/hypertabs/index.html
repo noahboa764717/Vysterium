@@ -14,8 +14,7 @@
   <script src="/script/config.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js');
-      navigator.serviceWorker.register('/uv/uv.sw.js', {
+      navigator.serviceWorker.register('/sw.js', {
           scope: "/",
       });
     };

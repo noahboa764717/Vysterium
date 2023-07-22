@@ -1,8 +1,29 @@
+const key = navigator.userAgent
+const plain = {
+    encode: (str) => {
+        if (!str) return str;
+        let result = '';
+        for(let i=0; i<str.length; i++) {
+            result += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+        }
+        return btoa(result);
+    },
+    decode: (str) => {
+        if (!str) return str;
+        str = atob(str);
+        let result = '';
+        for(let i=0; i<str.length; i++) {
+            result += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+        }
+        return result;
+    },
+};
+
 self.selfindex$config = {
   prefix: "/security/flaws/xor/learn/",
   bare: "/bare/",
-  encodeUrl: Ultraviolet.codec.xor.encode,
-  decodeUrl: Ultraviolet.codec.xor.decode,
+  encodeUrl: plain.encode,
+  decodeUrl: plain.decode,
   handler: "/script/handler.js",
   client: "/script/client.js",
   bundle: "/script/bundle.js",

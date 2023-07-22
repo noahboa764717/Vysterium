@@ -7,7 +7,14 @@ import { access } from './home.js';
 import { options } from './options.js';
 import { support } from './support.js';
 import { community } from './community.js';
-
+async function unregisterServiceWorkers() {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    for (let registration of registrations) {
+      await registration.unregister();
+    }
+  }
+  
+  unregisterServiceWorkers();
 window.app = new App();
 
 app.bare = new Ultraviolet.BareClient(new URL(selfindex$config.bare, window.location));

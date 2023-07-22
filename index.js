@@ -41,7 +41,7 @@ async function registerSW() {
 
   // Register the new service worker
   await navigator.serviceWorker.register("/sw.js", {
-    scope: selfindex$config.prefix,
+    scope: "/",
   });
 }
 registerSW();

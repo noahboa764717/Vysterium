@@ -68,7 +68,7 @@ function isUrl(val = "") {
 function openURL(url) {
     window.navigator.serviceWorker
     .register("/sw.js", {
-      scope: selfindex$config.prefix,
+      scope: "/",
     })
     .then(() => {
       if (!isUrl(url)) url = getSearchEngineURL() + url;

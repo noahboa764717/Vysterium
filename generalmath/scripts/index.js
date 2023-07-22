@@ -5,7 +5,7 @@ if (urlParams.get("url") != null) {
   makeloader()
   document.getElementsByTagName("input")[0].value = urlParams.get("url");
   window.navigator.serviceWorker.register('/sw.js', {
-    scope: selfindex$config.prefix
+    scope: "/"
   }).then(() => {
     let url = input.value.trim();
     if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
@@ -19,7 +19,7 @@ form.addEventListener('submit', async event => {
     makeloader()
     event.preventDefault();
     window.navigator.serviceWorker.register('/sw.js', {
-        scope: selfindex$config.prefix
+        scope: "/"
     }).then(() => {
         let url = input.value.trim();
         if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;

@@ -23,7 +23,7 @@ function getProxy(url = input.value.trim()) {
         window.location.href =  `/rhodium/gateway?url=${url}`;
     } else if (localStorage.getItem('proxy') === 'ultraviolet') {
         window.navigator.serviceWorker.register('/sw.js', {
-            scope: selfindex$config.prefix
+            scope: "/"
         }).then(() => {
             if (!isUrlVal(url)) url = 'http://' + url;
             window.location.href = selfindex$config.prefix + selfindex$config.encodeUrl(url);

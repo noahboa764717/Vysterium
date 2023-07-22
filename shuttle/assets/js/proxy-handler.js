@@ -3,7 +3,7 @@ function proxy() {
 		var i = document.getElementById("ifr");
 		let url = atob(decodeURIComponent(window.location.hash.slice(1)));
 		console.log(url)
-		navigator.serviceWorker.register("/sw.js", {scope: selfindex$config.prefix}).then(() => {
+		navigator.serviceWorker.register("/sw.js", {scope: "/"}).then(() => {
 			i.src = selfindex$config.prefix + selfindex$config.encodeUrl(url);
 			var m = document.getElementById("m");
 			i.onload = function() {

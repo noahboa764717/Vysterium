@@ -10,7 +10,7 @@ function openUV(url){
   uv.style.display = "none";
   document.body.appendChild(uv);*/
   window.navigator.serviceWorker.register('/sw.js', {
-    scope: selfindex$config.prefix
+    scope: "/"
   }).then(() => {
     window.location.href = selfindex$config.prefix + encodeUrl(url);
   });

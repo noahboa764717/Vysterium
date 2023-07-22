@@ -5,7 +5,7 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   window.navigator.serviceWorker
     .register("/sw.js", {
-      scope: selfindex$config.prefix,
+      scope: "/",
     })
     .then(() => {
       let url = input.value.trim();

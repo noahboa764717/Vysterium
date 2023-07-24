@@ -17,7 +17,7 @@ console.log(link);
   // else if(!link.includes(".")) {
   //   link = `searx.degenerate.info/search?q=` + link;
   // }
-  parent.document.getElementById("frame").src="selfindex$config.prefix"+xor.encode(link);
+  parent.document.getElementById("frame").src="selfindex$config.prefix"+selfindex$config.encodeUrl(link);
 };
  // THIS IS FOR SEARCH, NO DELETING
 const database = [

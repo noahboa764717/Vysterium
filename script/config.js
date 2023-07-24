@@ -1,23 +1,26 @@
-const key = navigator.userAgent
+const key = btoa(navigator.userAgent + navigator.language);
 const plain = {
     encode: (str) => {
         if (!str) return str;
-        let result = '';
-        for(let i=0; i<str.length; i++) {
-            result += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+        let xorResult = '';
+        for(let i = 0; i < str.length; i++) {
+            xorResult += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
         }
-        return btoa(result);
+        let base64Result = btoa(xorResult);
+        return base64Result.match(/.{1,6}/g).join('-');
     },
     decode: (str) => {
         if (!str) return str;
-        str = atob(str);
+        str = str.replace(/-/g, '');
+        let base64Decoded = atob(str);
         let result = '';
-        for(let i=0; i<str.length; i++) {
-            result += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+        for(let i = 0; i < base64Decoded.length; i++) {
+            result += String.fromCharCode(base64Decoded.charCodeAt(i) ^ key.charCodeAt(i % key.length));
         }
         return result;
     },
 };
+
 
 self.selfindex$config = {
   prefix: "/security/flaws/xor/learn/",

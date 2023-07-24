@@ -358,7 +358,7 @@ newPass.addEventListener("click", () => {
         window.parent.document.querySelector(".logout").remove();
         login.checked = false;
     } else {
-        localStorage.setItem("pass", xor.encode(setNew));
+        localStorage.setItem("pass", selfindex$config.encodeUrl(setNew));
         alert("next time your password is: " + setNew);
         addLogoutButton();
         login.checked = true;
@@ -376,7 +376,7 @@ login.addEventListener("click", () => {
                 window.parent.document.querySelector(".logout").remove();
                 login.checked = false;
             } else {
-                localStorage.setItem("pass", xor.encode(setNew));
+                localStorage.setItem("pass", selfindex$config.encodeUrl(setNew));
                 alert("next time your password is: " + setNew);
                 addLogoutButton();
             }

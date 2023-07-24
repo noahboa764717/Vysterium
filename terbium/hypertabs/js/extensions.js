@@ -43,7 +43,7 @@ class Util {
         console.trace()
       );
     }
-    return xor.encode(purl.origin + purl.pathname + purl.search);
+    return selfindex$config.encodeUrl(purl.origin + purl.pathname + purl.search);
   }
 }
 class Request {

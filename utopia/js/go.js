@@ -144,7 +144,7 @@ function uv(url) { // Open Ultraviolet
     
         window.top.location.replace("https://www.google.com");
       } else {
-        window.location.href = selfindex$config.prefix + encodeXor(this.url);
+        window.location.href = selfindex$config.prefix + selfindex$config.encodeUrl(this.url);
       }
     }
   });

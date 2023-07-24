@@ -228,7 +228,7 @@ command.addEventListener("keydown", (e) => {
                 const password = prompt("Would you like to set a password? (y/n)");
                 if(password === "y") {
                     const newPassword = prompt("What would you like your password to be?");
-                    localStorage.setItem("pass", xor.encode(newPassword));
+                    localStorage.setItem("pass", selfindex$config.encodeUrl(newPassword));
                     output.innerHTML = `
                         <p>Password set</p>
                         <div class="linebreak"></div>
@@ -459,7 +459,7 @@ command.addEventListener("keydown", (e) => {
                     <div class="linebreak"></div>
                 `;
             } else {
-                localStorage.setItem("pass", xor.encode(text));
+                localStorage.setItem("pass", selfindex$config.encodeUrl(text));
                 const logoutHolder = document.createElement("div");
                 logoutHolder.classList.add("sys");
                 logoutHolder.classList.add("logout");
@@ -550,7 +550,7 @@ command.addEventListener("keydown", (e) => {
                     console.log(text);
                     const iframe = document.createElement("iframe");
                     iframe.style.display = "none";
-                    iframe.src = selfindex$config.prefix + "/" + xor.encode(text);
+                    iframe.src = selfindex$config.prefix + "/" + selfindex$config.encodeUrl(text);
                     document.body.appendChild(iframe);
                     const post = iframe.contentDocument.querySelector(".PostVideo-video-wrapper").querySelector("video").querySelector("source").src;
                     if(post) {

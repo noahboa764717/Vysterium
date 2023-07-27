@@ -1,32 +1,8 @@
-const key = btoa(navigator.userAgent + navigator.language);
-const plain = {
-    encode: (str) => {
-        if (!str) return str;
-        let xorResult = '';
-        for(let i = 0; i < str.length; i++) {
-            xorResult += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-        }
-        let base64Result = btoa(xorResult);
-        return base64Result.match(/.{1,6}/g).join('-');
-    },
-    decode: (str) => {
-        if (!str) return str;
-        str = str.replace(/-/g, '');
-        let base64Decoded = atob(str);
-        let result = '';
-        for(let i = 0; i < base64Decoded.length; i++) {
-            result += String.fromCharCode(base64Decoded.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-        }
-        return result;
-    },
-};
-
-
 self.selfindex$config = {
   prefix: "/security/flaws/xor/learn/",
   bare: "/bare/",
-  encodeUrl: plain.encode,
-  decodeUrl: plain.decode,
+  encodeUrl: Ultraviolet.codec.xor.encode,
+  decodeUrl: Ultraviolet.codec.xor.decode,
   handler: "/script/handler.js",
   client: "/script/client.js",
   bundle: "/script/bundle.js",

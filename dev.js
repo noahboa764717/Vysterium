@@ -159,7 +159,7 @@ function changeURL() {
     if (!url.startsWith("https://") && !url.startsWith("http://")) {
       url = "https://" + url;
     }
-    newUrl = selfindex$config.prefix + selfindex$config.encodeUrl(url);
+    newUrl = __uv$config.prefix + __uv$config.encodeUrl(url);
     window.location.href = newUrl;
   });
   menu.appendChild(urlChangeButton);

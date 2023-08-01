@@ -1,5 +1,5 @@
 /* eslint-env browser */
-/* global selfindex$config __stomp$config */
+/* global __uv$config __stomp$config */
 
 import Logger from './scripts/logger.js';
 import { registerSettings, useCustomCSS, sleep } from './scripts/utilities.js';

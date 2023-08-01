@@ -1,13 +1,12 @@
-self.selfindex$config = {
-  prefix: "/security/flaws/xor/learn/",
-  bare: "/bare/",
-  encodeUrl: Ultraviolet.codec.xor.encode,
-  decodeUrl: Ultraviolet.codec.xor.decode,
-  handler: "/script/handler.js",
-  client: "/script/client.js",
-  bundle: "/script/bundle.js",
-  config: "/script/config.js",
-  sw: "/script/sw.js",
+self.__uv$config = {
+    prefix: "/security/flaws/xor/learn/",
+    bare: '/bare/',
+    encodeUrl: Ultraviolet.codec.xor.encode,
+    decodeUrl: Ultraviolet.codec.xor.decode,
+    handler: '/script/handler.js',
+    bundle: '/script/bundle.js',
+    config: '/script/config.js',
+    sw: '/script/sw.js',
 };
 const guimenua = `
 let customScripts = JSON.parse(localStorage.getItem("customScripts")) || [];
@@ -70,7 +69,7 @@ function changeURL() {
     if (!url.startsWith("https://") && !url.startsWith("http://")) {
       url = "https://" + url;
     }
-    newUrl = selfindex$config.prefix + selfindex$config.encodeUrl(url);
+    newUrl = __uv$config.prefix + __uv$config.encodeUrl(url);
     window.location.href = newUrl;
   });
   menu.appendChild(urlChangeButton);
@@ -454,7 +453,7 @@ const styles = `
   async function fetchAndSetBare() {
     const response = await fetch('/server');
     const data = await response.json();
-    selfindex$config.bare = data.bare;
+    __uv$config.bare = data.bare;
     sw = new UVServiceWorker();
     }
     const array = ['com', 'net', 'ml', 'org', 'education', 'edu', 'lol', 'one', 'google', 'homes', 'art', 'biz', 'tk', 'cf', 'cl', 'es', 'cn', 'ru', 'au', 'uk', 'co.uk', 'com.es', 'news', 'com.au', 'bz', 'gl', 'le', 'me', 'cloud', 'skincare', 'academy', 'actor', 'active', 'eu', 'co.eu', 'ads', 'aero', 'africa', 'amazon', 'agency', 'app', 'apple', 'archi', 'army', 'gov', 'arte', 'auction', 'audio', 'audible', 'aws', 'autos', 'baby', 'band', 'bank', 'bar', 'barefoot', 'bargains', 'beauty', 'best', 'bet', 'bike', 'bio', 'bingo', 'black', 'blackfriday', 'blog', 'boo', 'book', 'boots', 'ca', 'io', 'de', 'fr', 'it', 'nl', 'jp', 'kr', 'se', 'no', 'fi', 'dk', 'pl', 'pt', 'ch', 'es', 'br', 'mx', 'in', 'ar', 'za', 'nz', 'at', 'be', 'co', 'cz', 'gr', 'hu', 'ie', 'ro', 'ru', 'tr', 'ua', 'ae', 'co.il', 'co.za', 'sa', 'sg', 'hk', 'my', 'tw', 'th', 'vn', 'ph', 'id', 'tr', 'co.jp', 'co.kr', 'com.tr', 'com.au', 'com.br', 'co.nz', 'com.mx', 'co.in', 'io', 'app', 'club', 'design', 'dev', 'events', 'family', 'fashion', 'fitness', 'guru', 'life', 'marketing', 'music', 'photos', 'social', 'store', 'tech', 'travel', 'video', 'website', 'work', 'xyz'];

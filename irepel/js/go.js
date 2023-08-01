@@ -4,7 +4,7 @@ if (location.href.endsWith('site.html')) {
 	let url = queryParams.get('url');
 
 	if (url) {
-		window.replace(location.origin + selfindex$config.prefix + selfindex$config.encodeUrl(url))
+		window.replace(location.origin + __uv$config.prefix + __uv$config.encodeUrl(url))
 	}
 }
 function proxy(url) {
@@ -12,7 +12,7 @@ function proxy(url) {
 
 		if (!url.startsWith('http')) {url = 'https://' + url; }
 	
-		location.replace(window.selfindex$config.prefix + selfindex$config.encodeUrl(url));
+		location.replace(window.__uv$config.prefix + __uv$config.encodeUrl(url));
 	});
 }
 
@@ -29,7 +29,7 @@ if (window.location.pathname === '/irepel/site.html') {
 			var val = document.querySelector('.uvinput').value;
 			if (!val.startsWith('http')) val = 'https://' + val;
 		
-			location.assign(location.origin + window.selfindex$config.prefix + selfindex$config.encodeUrl(val));
+			location.assign(location.origin + window.__uv$config.prefix + __uv$config.encodeUrl(val));
 		});
 	});
 }

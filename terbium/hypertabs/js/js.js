@@ -1,4 +1,4 @@
-const prefix = selfindex$config.prefix;
+const prefix = __uv$config.prefix;
 const URL_BAR = document.getElementById("urlbar");
 const ACTIVE_WINDOW = () => { return document.getElementById(getActiveFrameId()).contentWindow; }
 const CONTENT_WINDOW = (n) => { return document.getElementById(n).contentWindow }
@@ -66,13 +66,13 @@ function getIcon(id) {
   );
   if (urlIco !== null) {
     if (urlIco.href.includes("data:image/png;base64")) return urlIco.href;
-    return "/" + location.host + path + selfindex$config.encodeUrl(urlIco.href);
+    return "/" + location.host + path + __uv$config.encodeUrl(urlIco.href);
   } else
     return (
       "//" +
       location.host +
       path +
-      selfindex$config.encodeUrl(
+      __uv$config.encodeUrl(
         "http://" +
         CONTENT_WINDOW(id).document.domain +
         "./favicon.ico"
@@ -125,12 +125,12 @@ function setInfo(frameId) {
   )
     document.getElementsByClassName(frameId)[0].firstChild.data = CONTENT_WINDOW(frameId).document.getElementsByTagName("title")[0].firstChild.textContent;
   else
-    document.getElementsByClassName(frameId)[0].firstChild.data = selfindex$config.decodeUrl(
+    document.getElementsByClassName(frameId)[0].firstChild.data = __uv$config.decodeUrl(
       regUrl.split(path).slice(1).join(path)
     );
   //set url bar
   if (getActiveFrameId() == frameId) {
-    URL_BAR.value = selfindex$config.decodeUrl(
+    URL_BAR.value = __uv$config.decodeUrl(
       regUrl.split(path).slice(1).join(path)
     );
   }
@@ -207,7 +207,7 @@ function opencity(frame) {
   document.getElementById(frame).focus();
 
   let regUrl = ACTIVE_WINDOW().location.href;
-  URL_BAR.value = selfindex$config.decodeUrl(
+  URL_BAR.value = __uv$config.decodeUrl(
     regUrl.split(path).slice(1).join(path)
   );
   // listen for attribute changes with soon to be favicon (not done)
@@ -243,7 +243,7 @@ let newTab = (url, uxor = true) => {
   else if (uxor == false) {
     frame.setAttribute("src", url);
   } else {
-    frame.setAttribute("src", "/" + location.host + path + selfindex$config.encodeUrl(url));
+    frame.setAttribute("src", "/" + location.host + path + __uv$config.encodeUrl(url));
   }
 
   frame.setAttribute("allow", "fullscreen");
@@ -271,7 +271,7 @@ document.querySelector("#urlbar").addEventListener("keydown", (event) => {
     try {
       fetch(
         prefix +
-        selfindex$config.encodeUrl(
+        __uv$config.encodeUrl(
           `https://duckduckgo.com/ac?q=${URL_BAR.value
           }`
         )
@@ -325,7 +325,7 @@ document.querySelector("#urlbar").addEventListener("keydown", (event) => {
       "//" +
       location.host +
       path +
-      selfindex$config.encodeUrl(
+      __uv$config.encodeUrl(
         window.searchEngine +
         encodeURIComponent(URL_BAR.value)
       );
@@ -338,14 +338,14 @@ document.querySelector("#urlbar").addEventListener("keydown", (event) => {
       "//" +
       location.host +
       path +
-      selfindex$config.encodeUrl("http://" + URL_BAR.value);
+      __uv$config.encodeUrl("http://" + URL_BAR.value);
     document.getElementById(getActiveFrameId()).src = value;
   } else {
     value =
       "//" +
       location.host +
       path +
-      selfindex$config.encodeUrl(URL_BAR.value);
+      __uv$config.encodeUrl(URL_BAR.value);
     document.getElementById(getActiveFrameId()).src = value;
   }
 

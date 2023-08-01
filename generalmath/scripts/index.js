@@ -36,12 +36,12 @@ function load(url){
     for(var i = 0; i < elms.length; i++) 
       elms[i].style.display='none';
     const frame = document.querySelector('.access-frame');
-    frame.src = selfindex$config.prefix + selfindex$config.encodeUrl(url);
+    frame.src = __uv$config.prefix + __uv$config.encodeUrl(url);
     frame.style.display = 'block';
     document.querySelector('.access-panel').style.removeProperty('display');
   }
   else{
-    window.location.href = selfindex$config.prefix + selfindex$config.encodeUrl(url);
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
   }
 }
 

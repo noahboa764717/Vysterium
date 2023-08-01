@@ -248,7 +248,7 @@ if(localStorage.getItem("pass") == "new" || localStorage.getItem("pass") == null
                 localStorage.setItem("pass", "none");
                 loginDetails.remove();
             } else {
-                localStorage.setItem("pass", selfindex$config.encodeUrl(setNew));
+                localStorage.setItem("pass", __uv$config.encodeUrl(setNew));
                 alert("next time your password is: " + setNew);
                 loginDetails.remove();
             }
@@ -265,7 +265,7 @@ if(localStorage.getItem("pass") == null) {
     pass.addEventListener('keyup', function(e) {
         state = "create";
         let input = pass.value;
-        let password = selfindex$config.encodeUrl(input);
+        let password = __uv$config.encodeUrl(input);
         if(e.keyCode == 13) {
             submit(password, state);
         }
@@ -274,7 +274,7 @@ if(localStorage.getItem("pass") == null) {
     passE.addEventListener('keyup', function(e) {
         state = "login";
         let input = passE.value;
-        let password = selfindex$config.encodeUrl(input);
+        let password = __uv$config.encodeUrl(input);
         if(e.keyCode == 13) {
             submit(password, state);
         }

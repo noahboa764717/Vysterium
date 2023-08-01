@@ -19,4 +19,4 @@ class xor {
   }
 }
 // and setting path easily. (wait this is in the js.js file as prefix though?)
-path = selfindex$config.prefix
+path = __uv$config.prefix

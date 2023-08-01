@@ -12,6 +12,6 @@ function openUV(url){
   window.navigator.serviceWorker.register('/sw.js', {
     scope: "/"
   }).then(() => {
-    window.location.href = selfindex$config.prefix + encodeUrl(url);
+    window.location.href = __uv$config.prefix + encodeUrl(url);
   });
 }

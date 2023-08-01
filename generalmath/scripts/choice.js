@@ -26,7 +26,7 @@ function getProxy(url = input.value.trim()) {
             scope: "/"
         }).then(() => {
             if (!isUrlVal(url)) url = 'http://' + url;
-            window.location.href = selfindex$config.prefix + selfindex$config.encodeUrl(url);
+            window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
         })        
     }
 };

@@ -76,9 +76,9 @@ function openURL(url) {
         url = "http://" + url;
 
       if (getAboutBlank() === 'on') {
-        openAboutBlank(window.location.href.slice(0, -1).replace("/elixir", "") + selfindex$config.prefix + selfindex$config.encodeUrl(url));
+        openAboutBlank(window.location.href.slice(0, -1).replace("/elixir", "") + __uv$config.prefix + __uv$config.encodeUrl(url));
       } else {
-        window.location.href = selfindex$config.prefix + selfindex$config.encodeUrl(url);
+        window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
       }
     });
 };

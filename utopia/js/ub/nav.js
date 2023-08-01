@@ -71,7 +71,7 @@ function updateLinks() {
         scope: "/"
       }).then(() => {
         console.log("Service worker (for Quick Links) registered.");
-        window.location.href = selfindex$config.prefix + this.id; 
+        window.location.href = __uv$config.prefix + this.id; 
       });
     }
   }

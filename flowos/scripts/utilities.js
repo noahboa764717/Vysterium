@@ -1,5 +1,5 @@
 /* eslint-env browser */
-/* global selfindex$config */
+/* global __uv$config */
 
 import { SettingsCategory, SettingsInput, SettingsTextarea, SettingsDropdown } from './classes.js';
 import { config } from './managers.js';
@@ -10,7 +10,7 @@ const logger = new Logger();
 const registerSW = async () => {
 	if ('serviceWorker' in navigator) {
 		await navigator.serviceWorker.register('/sw.js', {
-			scope: selfindex$config.prefix,
+			scope: __uv$config.prefix,
 		}).catch(() => window.logger.error('Failed to register serviceWorker.'));
 		return true;
 	}

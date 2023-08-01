@@ -98,7 +98,7 @@ window.addEventListener("load", () => {
           // encode the URL for UltraViolet
           let redirectTo =
             proxy === "uv"
-              ? selfindex$config.prefix + selfindex$config.encodeUrl(url)
+              ? __uv$config.prefix + __uv$config.encodeUrl(url)
               : __osana$config.prefix + __osana$config.codec.encode(url);
           const option = localStorage.getItem("nogg");
           if (option === "on") {
@@ -337,8 +337,8 @@ function link(_link) {
           var currentLink = _link.slice(0, _link.length - 1);
           iframe.src =
             location.origin +
-            selfindex$config.prefix +
-            selfindex$config.encodeUrl(currentLink);
+            __uv$config.prefix +
+            __uv$config.encodeUrl(currentLink);
           style.position = "fixed";
           style.top = style.bottom = style.left = style.right = 0;
           style.border = style.outline = "none";
@@ -349,6 +349,6 @@ function link(_link) {
     }, 200);
   } else {
     location.href =
-      selfindex$config.prefix + selfindex$config.encodeUrl("https://radon.games/");
+      __uv$config.prefix + __uv$config.encodeUrl("https://radon.games/");
   }
 }

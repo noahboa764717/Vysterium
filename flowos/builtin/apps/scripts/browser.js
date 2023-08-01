@@ -64,7 +64,7 @@ class Tab {
 		img.height = '18';
 		img.src = '../../assets/loading.gif';
 
-		tab.src = selfindex$config.prefix + selfindex$config.encodeUrl(config.settings.get('search').url);
+		tab.src = __uv$config.prefix + __uv$config.encodeUrl(config.settings.get('search').url);
 		tab.id = id;
 		tab.onload = () => {
 			handleTab(tab, titleBtn, img);
@@ -117,7 +117,7 @@ const setActiveTab = (tab) => {
 		return;
 	}
 
-	try { input.value = selfindex$config.decodeUrl(tab.src.split('/').pop()); }
+	try { input.value = __uv$config.decodeUrl(tab.src.split('/').pop()); }
 	catch(e) {};
 	tab.style.display = 'block';
 	if (window.clickList.length > 1) {
@@ -128,7 +128,7 @@ const setActiveTab = (tab) => {
 const handleTab = (tab, titleBtn, img) => {
 	let open = false;
 	const unurl = tab.src.split('/').pop();
-	let url = selfindex$config.decodeUrl(unurl);
+	let url = __uv$config.decodeUrl(unurl);
 
 	if (tab.contentWindow.location.pathname.startsWith('/flowos/builtin/browser')) {
 		input.value = 'flow://' + url.split('/').pop().split('.')[0];
@@ -225,7 +225,7 @@ if (!inputValue.startsWith('http://') && !inputValue.startsWith('https://')) {
     inputValue = 'http://' + inputValue;
 }
 
-window.clickList[0].src = selfindex$config.prefix + selfindex$config.encodeUrl(inputValue);
+window.clickList[0].src = __uv$config.prefix + __uv$config.encodeUrl(inputValue);
 		}
 	}
 };

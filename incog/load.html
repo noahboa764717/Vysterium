@@ -84,7 +84,7 @@
                     if (!isUrl(url)) url = search + url;
                     else if (!(url.startsWith('https://') || url.startsWith('http://'))) { url = 'http://' + url; };
                 } else { url = new URL(search).origin }
-                window.location.href = selfindex$config.prefix + selfindex$config.encodeUrl(url);
+                window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
             });
         } else {
             document.querySelector('.lds-dual-ring').remove();

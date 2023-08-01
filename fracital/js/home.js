@@ -13,7 +13,7 @@ function go(link) {
     } else if (!link.includes("http://")) {
         link = "http://" + link;
     };
-    window.open(selfindex$config.prefix + selfindex$config.encodeUrl(link), "_self");
+    window.open(__uv$config.prefix + __uv$config.encodeUrl(link), "_self");
 };
 
 document.getElementById('clig').addEventListener("click", () => {

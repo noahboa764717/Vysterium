@@ -10,7 +10,7 @@ function go(value) {
       else if (!(url.startsWith("https://") || url.startsWith("http://")))
         url = "https://" + url;
       //pass the encoded url to the second page
-      sessionStorage.setItem("encodedUrl", selfindex$config.encodeUrl(url));
+      sessionStorage.setItem("encodedUrl", __uv$config.encodeUrl(url));
       location.href = "./go.html";
     });
 }

@@ -4,6 +4,7 @@ self.__uv$config = {
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/script/handler.js',
+    client: '/script/client.js',
     bundle: '/script/bundle.js',
     config: '/script/config.js',
     sw: '/script/sw.js',

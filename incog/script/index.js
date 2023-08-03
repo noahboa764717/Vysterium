@@ -17,7 +17,7 @@ async function unregisterServiceWorkers() {
   unregisterServiceWorkers();
 window.app = new App();
 
-app.bare = __uv$config.bare;
+p.bare = new Ultraviolet.BareClient(new URL(__uv$config.bare, window.location));
 
 // You can add more search engines if you want
 app.searchProviders = {

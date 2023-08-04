@@ -7,7 +7,7 @@ import { config } from './scripts/managers.js';
 
 import FlowInstance from './flow.js';
 
-import '/script/config.js';
+import '/script/uv.config.js';
 
 window.immortalize = async () => {
 	console.log('Loading 3MB Tailwind Package...');

@@ -172,20 +172,34 @@ function importData(input) {
       alert("Imported cookies and localStorage data.");
     }
   }
-      // Check if the request is for an HTML document
-      if (event.request.headers.get('Accept').includes('text/html')) {
-        // Make sure we only modify the responses that are OK and HTML
-        if (!response.ok || !response.headers.get('Content-Type') || response.headers.get('Content-Type').indexOf('text/html') === -1) {
-          return response;
-        }
-        return response.clone().text().then(body => {
-          // Modify the HTML body
-          let newBody = body.replace('</body>', `
-          <style>${styles}</style><script>${guimenua}</script></body>`);
-          
-          // Create a new response
-          return new Response(newBody, {
-            headers: response.headers
-          });
-        });
-      } else {
+  function toggleChangeCredentials() {
+    const action = document.getElementById('action').value;
+    const changeCredentialsFields = document.getElementById('changeCredentialsFields');
+
+    if (action === 'changeCredentials') {
+        changeCredentialsFields.classList.remove('hide');
+    } else {
+        changeCredentialsFields.classList.add('hide');
+    }
+}
+
+function performAction() {
+    const action = document.getElementById('action').value;
+
+    switch(action) {
+        case 'changeCredentials':
+            changeCredentials();
+            break;
+        case 'setCookie':
+            setCookie();
+            break;
+        case 'getCookie':
+            getCookie();
+            break;
+        case 'deleteUser':
+            deleteUser();
+            break;
+        default:
+            console.error('Invalid action:', action);
+    }
+}

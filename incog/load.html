@@ -77,7 +77,7 @@
         };
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistration("/sw.js").then(async worker => {
-                if(!worker) await navigator.serviceWorker.register('/sw.js', { scope: "/" });
+                if(!worker) await navigator.serviceWorker.register('/sw.js', { scope: __uv$config.prefix });
                 let url = atob(decodeURIComponent(window.location.hash.slice(1)));
                 let search = engines[localStorage.getItem('incog||search') || 'google'];
                 if (url) {

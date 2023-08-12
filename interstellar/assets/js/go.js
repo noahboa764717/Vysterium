@@ -2,7 +2,7 @@ function go(value) {
   let iframe = document.querySelector(".iframe.active");
   window.navigator.serviceWorker
     .register("/sw.js", {
-      scope: "/",
+      scope: __uv$config.prefix,
     })
     .then(() => {
       let url = value.trim();

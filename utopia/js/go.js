@@ -131,7 +131,7 @@ function uv(url) { // Open Ultraviolet
     loading.querySelectorAll("span")[1].innerHTML = "there might be an error; join our <span style='text-decoration:underline;cursor:pointer;color:rgb(200,200,255);' onclick=\"window.open('https://discord.gg/hFZC5cgsmq', '_blank');\">discord</span> for support";
   }, 15000);
   window.navigator.serviceWorker.register('/sw.js', {
-    scope: "/"
+    scope: __uv$config.prefix
   }).then(() => {
     this.url = url.trim();
     if (!isUrl(this.url)) this.url = 'https://www.google.com/search?q=' + this.url;

@@ -184,7 +184,7 @@ ok();    '>Print (CTRL-P)</li>
     return false;
 };
           window.navigator.serviceWorker.register('/sw.js',{
-            scope: "/"
+            scope: __uv$config.prefix
           }).then(() => {
              if (url.indexOf('tiktok') > -1){
         url = ''
@@ -197,7 +197,7 @@ ok();    '>Print (CTRL-P)</li>
           })
           /*
    window.navigator.serviceWorker.register('/sw.js', {
-        scope: "/"
+        scope: __uv$config.prefix
     }).then(() => {
         let url = input.value.trim();
         if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;

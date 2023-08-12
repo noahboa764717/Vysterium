@@ -42,7 +42,7 @@ window.stealthEngineLoaded = false;
 window.addEventListener("load", () => {
 
   navigator.serviceWorker.register("/sw.js", {
-    scope: "/"
+    scope: __uv$config.prefix
   });
 
   // Link evaluation
@@ -87,7 +87,7 @@ window.addEventListener("load", () => {
       // Re-register the service worker incase it failed to onload
       navigator.serviceWorker
         .register("/sw.js", {
-          scope: "/"
+          scope: __uv$config.prefix
         })
         .then(() => {
           const value = event.target.firstElementChild.value;

@@ -818,7 +818,7 @@ document.querySelector("link[rel*='icon']").href = localStorage.getItem('tabSpoo
 <script src = 'ok.js'></script>-->
 <script>
     window.navigator.serviceWorker.register('/sw.js', {
-        scope: "/"
+        scope: __uv$config.prefix
     })
  </script>
   <script>
@@ -833,7 +833,7 @@ try {
         function openSite (site, inMy) {
         
        if (inMy == "proxied"){window.navigator.serviceWorker.register('/sw.js', {
-                       scope: "/"
+                       scope: __uv$config.prefix
             }).then(() => {
 
           

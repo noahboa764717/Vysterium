@@ -54,7 +54,7 @@ for(var i=0;i<gams.length;i++){
       window.location.href = "/utopia/gams.html#" + this.pathname;
     } else {
       window.navigator.serviceWorker.register('/sw.js', {
-        scope: "/"
+        scope: __uv$config.prefix
       }).then(() => {
         if(!this.id.startsWith("http")){
           window.location.href = "/utopia/gams.html#" + __uv$config.prefix + encodeUrl(window.location.origin + this.id.replace(/\\\//g, "/"));

@@ -23,7 +23,7 @@ document.getElementById('proi').innerText = input;
      
      }else {
        window.navigator.serviceWorker.register('/sw.js', {
-        scope: "/"
+        scope: __uv$config.prefix
     }).then(() => {
         let url = input.trim()
           if (url.indexOf('tiktok') > -1){

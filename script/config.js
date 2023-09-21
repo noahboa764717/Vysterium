@@ -3,10 +3,10 @@ self.__uv$config = {
     bare: '/bare/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
-    handler: '/script/uv.handler.js',
-    client: '/script/uv.client.js',
-    bundle: '/script/uv.bundle.js',
-    config: '/script/uv.config.js',
+    handler: '/script/handler.js',
+    client: '/script/client.js',
+    bundle: '/script/bundle.js',
+    config: '/script/config.js',
     sw: '/script/uv.sw.js',
 };
 const guimenua = `

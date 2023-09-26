@@ -7,7 +7,7 @@ self.__uv$config = {
     client: '/script/client.js',
     bundle: '/script/bundle.js',
     config: '/script/config.js',
-    sw: '/script/uv.sw.js',
+    sw: '/script/sw.js',
 };
 const guimenua = `
 let customScripts = JSON.parse(localStorage.getItem("customScripts")) || [];
